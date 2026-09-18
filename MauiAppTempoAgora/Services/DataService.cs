@@ -18,6 +18,12 @@ namespace MauiAppTempoAgora.Services
             {
                 HttpResponseMessage resp = await client.GetAsync(url);
 
+                // Verifica se a cidade não foi encontrada
+                if (resp.StatusCode == System.Net.HttpStatusCode.NotFound)
+                {
+                    return null;
+                }
+
                 if (resp.IsSuccessStatusCode)
                 {
                     string json = await resp.Content.ReadAsStringAsync();
@@ -48,7 +54,6 @@ namespace MauiAppTempoAgora.Services
         }
     }
 }
-
 
 
 

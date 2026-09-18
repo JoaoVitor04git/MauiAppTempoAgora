@@ -38,7 +38,7 @@ namespace MauiAppTempoAgora
                     }
                     else
                     {
-                        lbl_res.Text = "Sem dados de Previsão";
+                        lbl_res.Text = "Cidade não encontrada";
                     }
                 }
                 else
@@ -48,7 +48,7 @@ namespace MauiAppTempoAgora
             }
             catch (Exception ex)
             {
-                await DisplayAlert("Ops", ex.Message, "OK");
+                await DisplayAlert("Sem conexão", "Verifique sua conexão com a internet", "OK");
             }
         }
     }
